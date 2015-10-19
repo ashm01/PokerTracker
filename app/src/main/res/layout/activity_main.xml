@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/profitTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="93dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View History"
+        android:id="@+id/viewHisButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/profitTextView"
+        android:layout_toStartOf="@+id/profitTextView"
+        android:layout_marginBottom="134dp"
+        android:onClick="viewHistoryClicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Result"
+        android:id="@+id/addResultButton"
+        android:layout_alignBottom="@+id/viewHisButton"
+        android:layout_toRightOf="@+id/profitTextView"
+        android:layout_toEndOf="@+id/profitTextView"
+        android:onClick="addNewResultClicked" />
+</RelativeLayout>
