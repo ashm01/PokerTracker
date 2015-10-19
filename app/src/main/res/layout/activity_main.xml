@@ -4,35 +4,56 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#5f6e7d">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/profitTextView"
-        android:layout_alignParentTop="true"
+        android:textSize="100dp"
+        android:layout_above="@+id/viewHisButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="93dp" />
+        android:layout_marginBottom="76dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View History"
+        android:text="View Results"
         android:id="@+id/viewHisButton"
+        android:onClick="viewHistoryClicked"
+        style="@style/btnStyleBreakerBay"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/profitTextView"
-        android:layout_toStartOf="@+id/profitTextView"
-        android:layout_marginBottom="134dp"
-        android:onClick="viewHistoryClicked" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Result"
         android:id="@+id/addResultButton"
-        android:layout_alignBottom="@+id/viewHisButton"
-        android:layout_toRightOf="@+id/profitTextView"
-        android:layout_toEndOf="@+id/profitTextView"
-        android:onClick="addNewResultClicked" />
+        android:onClick="addNewResultClicked"
+        style="@style/btnStyleBreakerBay"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Most recent result here by date"
+        android:id="@+id/recentResultTextView"
+        android:layout_above="@+id/viewHisButton"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoImageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/pokertrackerlogo" />
+
 </RelativeLayout>
