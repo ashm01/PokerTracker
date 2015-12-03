@@ -13,9 +13,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/profitTextView"
         android:textSize="100dp"
-        android:layout_above="@+id/viewHisButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="76dp" />
+        android:layout_below="@+id/logoImageView"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -42,10 +41,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Most recent result here by date"
         android:id="@+id/recentResultTextView"
         android:layout_above="@+id/viewHisButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp" />
 
     <ImageView
         android:layout_width="fill_parent"

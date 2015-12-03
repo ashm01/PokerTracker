@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class AddResult extends Activity {
 
-    EditText nameInput, typeInput, buyInInput, returnInput;
+    EditText nameInput, typeInput, buyInInput, returnInput, dateInput;
     MyDBHandler dbHandler;
 
     @Override
@@ -22,6 +22,7 @@ public class AddResult extends Activity {
         typeInput = (EditText) findViewById(R.id.resultTypeTextField);
         buyInInput = (EditText) findViewById(R.id.resultBuyInTextField);
         returnInput = (EditText) findViewById(R.id.resultReturnTextField);
+        dateInput = (EditText) findViewById(R.id.resultDateTextField);
         dbHandler = new MyDBHandler(this, null, null, 1);
 
     }
@@ -33,8 +34,9 @@ public class AddResult extends Activity {
         String type = typeInput.getText().toString();
         int buyIn = Integer.parseInt(buyInInput.getText().toString());
         int returnAmount = Integer.parseInt(returnInput.getText().toString());
+        String date = dateInput.getText().toString();
 
-        ResultData result = new ResultData(name,type,buyIn,returnAmount);
+        ResultData result = new ResultData(name,type,buyIn,returnAmount, date);
 
         dbHandler.addResult(result);
 

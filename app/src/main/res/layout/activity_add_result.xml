@@ -23,11 +23,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/resultTypeTextField"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="53dp"
         android:minWidth="150dp"
         android:layout_below="@+id/resultNameTextField"
-        android:layout_alignRight="@+id/resultNameTextField"
-        android:layout_alignEnd="@+id/resultNameTextField" />
+        android:layout_toRightOf="@+id/resultTypeLabel"
+        android:layout_toEndOf="@+id/resultTypeLabel" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -35,18 +35,18 @@
         android:id="@+id/resultBuyInTextField"
         android:minWidth="150dp"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/resultTypeTextField"
-        android:layout_alignEnd="@+id/resultTypeTextField" />
+        android:layout_toRightOf="@+id/resultBuyInLabel"
+        android:layout_toEndOf="@+id/resultBuyInLabel" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/resultReturnTextField"
-        android:layout_marginTop="44dp"
         android:minWidth="150dp"
         android:layout_below="@+id/resultBuyInTextField"
-        android:layout_alignRight="@+id/resultBuyInTextField"
-        android:layout_alignEnd="@+id/resultBuyInTextField" />
+        android:layout_toRightOf="@+id/resultBuyInLabel"
+        android:layout_toEndOf="@+id/resultBuyInLabel"
+        android:layout_marginTop="39dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -97,9 +97,30 @@
         android:layout_height="wrap_content"
         android:text="Add Result"
         android:id="@+id/addResultButton"
+        android:onClick="addResultClicked"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp"
-        android:onClick="addResultClicked" />
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/resultDateTextField"
+        android:layout_below="@+id/resultReturnTextField"
+        android:layout_toRightOf="@+id/resultReturnLabel"
+        android:layout_marginTop="31dp"
+        android:layout_alignRight="@+id/resultReturnTextField"
+        android:layout_alignEnd="@+id/resultReturnTextField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date - DD/MM/YYYY"
+        android:id="@+id/resultDateLabel"
+        android:layout_alignTop="@+id/resultDateTextField"
+        android:layout_alignLeft="@+id/resultReturnLabel"
+        android:layout_alignStart="@+id/resultReturnLabel"
+        android:layout_alignBottom="@+id/resultDateTextField"
+        android:layout_toStartOf="@+id/resultDateTextField"
+        android:layout_toLeftOf="@+id/resultDateTextField" />
 
 </RelativeLayout>

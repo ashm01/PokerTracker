@@ -16,6 +16,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_TYPE = "type";
     public static final String COLUMN_BUYIN = "buyin";
     public static final String COLUMN_RETURN = "return";
+    public static final String COLUMN_DATE = "date";
+
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -29,7 +31,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 COLUMN_NAME + " VARCHAR, " +
                 COLUMN_TYPE + " VARCHAR, " +
                 COLUMN_BUYIN + " INTEGER, " +
-                COLUMN_RETURN + " INTEGER " +
+                COLUMN_RETURN + " INTEGER, " +
+                COLUMN_DATE + " DATE " +
                 ");";
         db.execSQL(createResultTable);
     }
@@ -47,6 +50,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_TYPE, result.get_type());
         values.put(COLUMN_BUYIN, result.get_buyIn());
         values.put(COLUMN_RETURN, result.get_return());
+        values.put(COLUMN_DATE, result.get_date());
         //Get reference to the database
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_RESULTS, null, values);
@@ -89,11 +93,36 @@ public class MyDBHandler extends SQLiteOpenHelper {
             return 0;
         }
 
-
-
-
     }
 
+    public String getMostRecentResultData ()
+    {
+        String resultString;
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_RESULTS + " WHERE " + COLUMN_ID + " = (SELECT MAX("+COLUMN_ID+") FROM "+TABLE_RESULTS+" );";
+        //System.out.println(query);
+
+        Cursor c = db.rawQuery(query, null);
+        if(c.getCount()!= 0) {
+            c.moveToFirst();
+            //System.out.println(c.getInt(c.getColumnIndex("buyin")));
+            //System.out.println(c.getInt(c.getColumnIndex("return")));
+            int profit = c.getInt(c.getColumnIndex("return")) - c.getInt(c.getColumnIndex("buyin"));
+            if (profit < 0) {
+                resultString = "Most recent result: -£" + Math.abs(profit) + " From " + c.getString(c.getColumnIndex("name")) + " " + c.getString(c.getColumnIndex("type"));
+
+            } else {
+                resultString = "Most recent result: +£" + profit + " From " + c.getString(c.getColumnIndex("name")) + " " + c.getString(c.getColumnIndex("type"));
+            }
+        }else
+        {
+            resultString = " No Results Yet!";
+        }
+        db.close();
+        c.close();
+        return resultString;
+    }
 
 
 }

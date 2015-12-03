@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    TextView showProfitText;
+    TextView showProfitText, mostRecentResultText;
     MyDBHandler dbHandler;
 
     @Override
@@ -27,11 +27,18 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void viewHistoryClicked(View view)
+    {
+        //Intent intent = new Intent(this, AddResult.class);
+        //startActivity(intent);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
 
         showProfitText = (TextView) findViewById(R.id.profitTextView);
+        mostRecentResultText = (TextView) findViewById(R.id.recentResultTextView);
         dbHandler = new MyDBHandler(this, null, null, 1);
         int profit = dbHandler.calculateProfit();
         if(profit < 0)
@@ -43,6 +50,9 @@ public class MainActivity extends Activity {
             showProfitText.setText("£"+Integer.toString(profit));
             showProfitText.setTextColor(Color.parseColor("#449458"));
         }
+
+        mostRecentResultText.setText(dbHandler.getMostRecentResultData());
+
 
 
 

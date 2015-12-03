@@ -7,12 +7,14 @@ public class ResultData {
     private String _type;
     private int _buyIn;
     private int _return;
+    private String _date;
 
-    public ResultData(String name, String type, int buyIn, int returnAmount) {
+    public ResultData(String name, String type, int buyIn, int returnAmount, String date) {
         this._name = name;
         this._type = type;
         this._buyIn = buyIn;
         this._return = returnAmount;
+        this._date = date;
     }
 
     public ResultData(){
@@ -41,6 +43,14 @@ public class ResultData {
 
     public int get_id() {
         return _id;
+    }
+
+    public String get_date() {
+        return _date;
+    }
+
+    public void set_date(String _date) {
+        this._date = _date;
     }
 
     public String get_name() {
